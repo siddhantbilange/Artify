@@ -1,0 +1,366 @@
+{
+    "category": [
+        {
+            "id": 1,
+            "title": "God",
+            "banner": "img/gods/artiswellnl-20240129-0001.jpg"
+        },
+        {
+            "id": 2,
+            "title": "Anime",
+            "banner": "img/anime/by_monkai-20240205-0004.jpg"
+        },
+        {
+            "id": 3,
+            "title": "Sports",
+            "banner": "img/gods/artiswellnl-20240129-0001.jpg"
+        },
+        {
+            "id": 4,
+            "title": "Movies",
+            "banner": "img/anime/by_monkai-20240205-0004.jpg"
+        },
+        {
+            "id": 5,
+            "title": "Nature",
+            "banner": "img/gods/artiswellnl-20240129-0001.jpg"
+        },
+        {
+            "id": 6,
+            "title": "Games",
+            "banner": "img/anime/by_monkai-20240205-0004.jpg"
+        }
+    ],
+    "products": [
+        {
+            "id": 0,
+            "title": "Jujutsu Team",
+            "description": "description...",
+            "tags": "jujutsu, panda",
+            "img": "img/anime/nxi_.__-20240205-0021.heic",
+            "categoryId": 2,
+            "categoryName": "Anime",
+            "prise": 1200
+        },
+        {
+            "id": 1,
+            "title": "Narasimha",
+            "tags": "jujutsu, panda",
+            "description": "description...",
+            "img": "img/gods/artiswellnl-20240205-0001.jpg",
+            "categoryId": 2,
+            "categoryName": "God",
+            "prise": 2000
+        },
+        {
+            "id": 2,
+            "title": "Naruto 02",
+            "tags": "jujutsu, panda",
+            "description": "description...",
+            "img": "img/anime/nxi_.__-20240205-0010.heic",
+            "categoryId": 2,
+            "categoryName": "Anime",
+            "prise": 2000
+        },
+        {
+            "id": 3,
+            "title": "Naruto 03",
+            "tags": "naruto shippuden, Naruto flame",
+            "description": "a breathtaking depiction of Naruto in his awe-inspiring, overpowered form from the legendary Naruto Shippuden series. This stunning artwork captures the essence of strength, power, and determination as Naruto stands amidst swirling flames, emanating an aura of unstoppable force.\nLet Naruto's unwavering determination serve as a reminder to chase your goals fearlessly, overcome obstacles, and emerge victorious. Elevate your space with this electrifying masterpiece and let the power of Naruto's spirit fuel your own journey.\nDon't miss your chance to own a piece of anime history. Purchase our Naruto Shippuden-inspired painting today and let your walls speak volumes about your love for adventure, strength, and the indomitable will to succeed.",
+            "img": "img/anime/by_monkai-20240205-0003.jpg",
+            "categoryId": 2,
+            "categoryName": "Anime",
+            "prise": 2000
+        },
+        {
+            "id": 4,
+            "title": "Naruto 04",
+            "tags": "naruto shippuden, Naruto flame",
+            "description": "a breathtaking depiction of Naruto in his awe-inspiring, overpowered form from the legendary Naruto Shippuden series. This stunning artwork captures the essence of strength, power, and determination as Naruto stands amidst swirling flames, emanating an aura of unstoppable force.\nLet Naruto's unwavering determination serve as a reminder to chase your goals fearlessly, overcome obstacles, and emerge victorious. Elevate your space with this electrifying masterpiece and let the power of Naruto's spirit fuel your own journey.\n\nDon't miss your chance to own a piece of anime history. Purchase our Naruto Shippuden-inspired painting today and let your walls speak volumes about your love for adventure, strength, and the indomitable will to succeed.",
+            "img": "img/anime/by_monkai-20240205-0004.jpg",
+            "categoryId": 2,
+            "categoryName": "Anime",
+            "prise": 2000
+        },
+        {
+            "id": 5,
+            "title": "Naruto 05",
+            "tags": "naruto shippuden, flame, baby, baby naruto",
+            "description": "a charming portrayal of the beloved character, baby Naruto, with an infectious smile that lights up the room. This endearing artwork captures the innocence and joy of Naruto's early days, reminding us of the journey that led him to become the legendary ninja we know and love.\nBring home a piece of Naruto's early adventures and let his infectious joy inspire you daily. Purchase our baby Naruto painting today and let the warmth of his smile brighten your home for years to come.",
+            "img": "img/anime/by_monkai-20240205-0005.jpg",
+            "categoryId": 2,
+            "categoryName": "Anime",
+            "prise": 2000
+        },
+        {
+            "id": 6,
+            "title": "Naruto 06",
+            "tags": "jujutsu, panda",
+            "description": "Introducing our latest masterpiece: a captivating portrayal of Naruto in his formidable, overpowered form from the renowned Naruto Shippuden series. This dynamic artwork radiates strength and determination, surrounded by swirling flames that ignite the imagination.\nCrafted with meticulous attention to detail and vibrant colors, our painting is a testament to our commitment to quality and durability. Elevate your space with this electrifying masterpiece and let the power of Naruto's spirit fuel your own journey. Don't miss your chance to own a piece of anime history—purchase today and transform your walls into a symbol of strength and adventure.",
+            "img": "img/anime/by_monkai-20240205-0006.jpg",
+            "categoryId": 2,
+            "categoryName": "Anime",
+            "prise": 2000
+        },
+        {
+            "id": 7,
+            "title": "The trishula",
+            "tags": "jujutsu, panda",
+            "description": "description...",
+            "img": "img/gods/artiswellnl-20240129-0001.jpg",
+            "categoryId": 1,
+            "categoryName": "God",
+            "prise": 2000
+        },
+        {
+            "id": 8,
+            "title": "Naruto 08",
+            "tags": "jujutsu, panda",
+            "description": "description...",
+            "img": "img/anime/by_monkai-20240205-0008.jpg",
+            "categoryId": 2,
+            "categoryName": "Anime",
+            "prise": 2000
+        },
+        {
+            "id": 9,
+            "title": "Naruto 09",
+            "tags": "jujutsu, panda",
+            "description": "description...",
+            "img": "img/gods/artiswellnl-20240204-0001.jpg",
+            "categoryId": 1,
+            "categoryName": "God",
+            "prise": 2000
+        },
+        {
+            "id": 10,
+            "title": "Naruto 010",
+            "tags": "jujutsu, panda",
+            "description": "description...",
+            "img": "img/gods/artiswellnl-20240205-0001.jpg",
+            "categoryId": 1,
+            "categoryName": "God",
+            "prise": 2000
+        },
+        {
+            "id": 11,
+            "title": "Naruto 011",
+            "tags": "jujutsu, panda",
+            "description": "description...",
+            "img": "img/anime/by_monkai-20240205-0011.jpg",
+            "categoryId": 2,
+            "categoryName": "Anime",
+            "prise": 2000
+        },
+        {
+            "id": 12,
+            "title": "Naruto 12",
+            "tags": "jujutsu, panda",
+            "description": "description...",
+            "img": "img/gods/indian_gods_aiart-20240205-0001.jpg",
+            "categoryId": 1,
+            "categoryName": "god",
+            "prise": 2000
+        },
+        {
+            "id": 13,
+            "title": "Naruto 13",
+            "tags": "jujutsu, panda",
+            "description": "description...",
+            "img": "img/anime/by_monkai-20240205-0013.jpg",
+            "categoryId": 2,
+            "categoryName": "Anime",
+            "prise": 2000
+        },
+        {
+            "id": 14,
+            "title": "Naruto 14",
+            "tags": "jujutsu, panda",
+            "description": "description...",
+            "img": "img/anime/by_monkai-20240205-0014.jpg",
+            "categoryId": 2,
+            "categoryName": "Anime",
+            "prise": 2000
+        },
+        {
+            "id": 15,
+            "title": "Naruto 15",
+            "tags": "jujutsu, panda",
+            "description": "description...",
+            "img": "img/gods/mudra_graphic_design-20240119-0001.heic",
+            "categoryId": 1,
+            "categoryName": "God",
+            "prise": 2000
+        },
+        {
+            "id": 16,
+            "title": "Naruto 16",
+            "tags": "jujutsu, panda",
+            "description": "description...",
+            "img": "img/anime/by_monkai-20240205-0016.jpg",
+            "categoryId": 2,
+            "categoryName": "Anime",
+            "prise": 2000
+        },
+        {
+            "id": 17,
+            "title": "Naruto 17",
+            "tags": "jujutsu, panda",
+            "description": "description...",
+            "img": "img/anime/by_monkai-20240205-0017.jpg",
+            "categoryId": 2,
+            "categoryName": "Anime",
+            "prise": 2000
+        },
+        {
+            "id": 18,
+            "title": "Naruto 18",
+            "tags": "jujutsu, panda",
+            "description": "description...",
+            "img": "img/anime/by_monkai-20240205-0018.jpg",
+            "categoryId": 2,
+            "categoryName": "Anime",
+            "prise": 2000
+        },
+        {
+            "id": 19,
+            "title": "Lord Krishna",
+            "tags": "Lord, Krishna",
+            "description": "description...",
+            "img": "img/gods/indian_gods_aiart-20240205-0006.jpg",
+            "categoryId": 1,
+            "categoryName": "God",
+            "prise": 2000
+        },
+        {
+            "id": 20,
+            "title": "Naruto 20",
+            "tags": "jujutsu, panda",
+            "description": "description...",
+            "img": "img/anime/by_monkai-20240205-0020.jpg",
+            "categoryId": 2,
+            "categoryName": "Anime",
+            "prise": 2000
+        },
+        {
+            "id": 21,
+            "title": "Lord Shiva",
+            "tags": "lord, shiva, black, white, and",
+            "description": "description...",
+            "img": "img/gods/__we_wake_-20240206-0001.jpg",
+            "categoryId": 1,
+            "categoryName": "God",
+            "prise": 2000
+        },
+        {
+            "id": 22,
+            "title": "Lord Shiva",
+            "tags": "lord, shiva, black, white, and",
+            "description": "description...",
+            "img": "img/gods/__we_wake_-20240206-0002.jpg",
+            "categoryId": 2,
+            "categoryName": "God",
+            "prise": 2000
+        },
+        {
+            "id": 23,
+            "title": "Lord Krishna",
+            "tags": "Lord, Krishna",
+            "description": "description...",
+            "img": "img/gods/__we_wake_-20240206-0003.jpg",
+            "categoryId": 1,
+            "categoryName": "God",
+            "prise": 2000
+        },
+        {
+            "id": 24,
+            "title": "Shiv Shakti",
+            "tags": "Shiva, Shakti, parvati",
+            "description": "description...",
+            "img": "img/gods/artiswellnl-20240205-0002.jpg",
+            "categoryId": 1,
+            "categoryName": "God",
+            "prise": 2000
+        },
+        {
+            "id": 25,
+            "title": "Lord Shiva",
+            "tags": "Lord, Shiva",
+            "description": "description...",
+            "img": "img/gods/artiswellnl-20240206-0001.jpg",
+            "categoryId": 1,
+            "categoryName": "God",
+            "prise": 2000
+        },
+        {
+            "id": 26,
+            "title": "Lord Krishna",
+            "tags": "Lord, Krishna",
+            "description": "description...",
+            "img": "img/gods/artiswellnl-20240208-0001.jpg",
+            "categoryId": 1,
+            "categoryName": "God",
+            "prise": 2000
+        },
+        {
+            "id": 27,
+            "title": "Shiv Shakti",
+            "tags": "Shiva, Shakti, parvati",
+            "description": "description...",
+            "img": "img/gods/ghanteedotcom-20240206-0001.heic",
+            "categoryId": 1,
+            "categoryName": "God",
+            "prise": 2000
+        },
+        {
+            "id": 28,
+            "title": "Shiv Shakti",
+            "tags": "Shiva, Shakti, parvati",
+            "description": "description...",
+            "img": "img/gods/om_love_light_om-20240206-0002.jpg",
+            "categoryId": 1,
+            "categoryName": "God",
+            "prise": 2000
+        },
+        {
+            "id": 29,
+            "title": "Lord Hanuman",
+            "tags": "Shree, ram, hanuman",
+            "description": "description...",
+            "img": "img/gods/om_love_light_om-20240206-0003.jpg",
+            "categoryId": 1,
+            "categoryName": "God",
+            "prise": 2000
+        },
+        {
+            "id": 30,
+            "title": "Lord Hanuman",
+            "tags": "Shree, ram, hanuman",
+            "description": "description...",
+            "img": "img/gods/om_love_light_om-20240206-0004.jpg",
+            "categoryId": 1,
+            "categoryName": "God",
+            "prise": 2000
+        },
+        {
+            "id": 31,
+            "title": "Lord Shiva",
+            "tags": "Shree, ram, hanuman",
+            "description": "description...",
+            "img": "img/gods/omdev.ai-20240206-0001.jpg",
+            "categoryId": 1,
+            "categoryName": "God",
+            "prise": 2000
+        },
+        {
+            "id": 32,
+            "title": "Lord Shiva",
+            "tags": "Lord, Shiva",
+            "description": "description...",
+            "img": "img/gods/artiswellnl-20240206-0003.jpg",
+            "categoryId": 1,
+            "categoryName": "God",
+            "prise": 2000
+        }
+    ]
+}
