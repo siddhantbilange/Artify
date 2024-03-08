@@ -6,7 +6,7 @@ import { useCartContext } from '../../context/CartContextProvider';
 function ProductCard({ item }) {
     const [active, setActive] = useState(false);
     const { AddToCart } = useCartContext();
-    const { id, title, img, categoryName } = item;
+    const { id, title, img,price, categoryName } = item;
 
 
 
@@ -29,7 +29,7 @@ function ProductCard({ item }) {
             <small className='text-center block text-slate-500 -translate-y-1.5'>{categoryName}</small>
             <p className='text-center font-semibold'>
                 <span className='text-rose-600'>
-                    ₹2,000.00
+                ₹{price}
                 </span>
             </p>
             {/* Cart button************ */}

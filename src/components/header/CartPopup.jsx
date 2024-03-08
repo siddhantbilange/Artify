@@ -5,7 +5,7 @@ import { useCartContext } from "../../context/CartContextProvider";
 function CartPopup() {
     const { Cart, RemoveFromCart, UpdateToCart } = useCartContext();
     // console.log(Cart);
-    const total = Cart.reduce((total, item) => total + item.quantity * item.prise, 0);
+    const total = Cart.reduce((total, item) => total + item.quantity * item.price, 0);
 
     const HandleSizeChange = (e, item) => {
         // UpdateToCart({})
@@ -163,7 +163,7 @@ function CartPopup() {
                                                     </div>
                                                 </div>
                                                 <p className="text-gray-500 flex items-end gap-2">
-                                                    ₹{item.prise}
+                                                    ₹{item.price}
                                                 </p>
                                             </div>
                                         </div>

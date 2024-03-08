@@ -2,57 +2,63 @@ import React, { useEffect, useLayoutEffect, useState } from 'react';
 import { useParams } from "react-router-dom";
 import { products } from "../utils/data.json";
 import Breadcrumbs from '../components/shared/Breadcrumbs';
-
-
-const useTruncatedElement = ({ ref }) => {
-    const [isTruncated, setIsTruncated] = useState(false);
-    const [isReadingMore, setIsReadingMore] = useState(false);
-
-    useLayoutEffect(() => {
-        const { offsetHeight, scrollHeight } = ref.current || {};
-
-        if (offsetHeight && scrollHeight && offsetHeight < scrollHeight) {
-            setIsTruncated(true);
-        } else {
-            setIsTruncated(false);
-        }
-    }, [ref]);
-
-    return {
-        isTruncated,
-        isReadingMore,
-        setIsReadingMore,
-    };
-};
+import Products from './Products';
+import { useCartContext } from '../context/CartContextProvider';
 
 
 
+// const useTruncatedElement = ({ ref }) => {
+//     const [isTruncated, setIsTruncated] = useState(false);
+//     const [isReadingMore, setIsReadingMore] = useState(false);
+
+//     useLayoutEffect(() => {
+//         const { offsetHeight, scrollHeight } = ref.current || {};
+
+//         if (offsetHeight && scrollHeight && offsetHeight < scrollHeight) {
+//             setIsTruncated(true);
+//         } else {
+//             setIsTruncated(false);
+//         }
+//     }, [ref]);
+
+//     return {
+//         isTruncated,
+//         isReadingMore,`
+//         setIsReadingMore,
+//     };
+// };
 
 
 
 
 
 
-function ProductDetail() {
+
+
+
+const ProductDetail= () => {
 
     const { id } = useParams();
-    const ref = React.useRef(null);
+    // const ref = React.useRef(null);
 
-    const { isTruncated, isReadingMore, setIsReadingMore } = useTruncatedElement({
-        ref,
-    });
+    // const { isTruncated, isReadingMore, setIsReadingMore } = useTruncatedElement({
+    //     ref,
+    // });
     const [item, setItem] = useState({
         "id": 0,
-        "title": "Jujutsu Team",
-        "description": "description...",
-        "tags": "jujutsu, panda",
-        "img": "img/anime/nxi_.__-20240205-0021.heic",
-        "categoryId": 2,
-        "categoryName": "Anime"
+        "title": "",
+        "description": "",
+        "tags": "",
+        "img": "",
+        "categoryId": 0,
+        "categoryName": "",
+        "price":0
     },)
+
     useEffect(() => {
         if (id) {
             const data = products.find((item) => item.id == id);
+            
             setItem({ ...data, 'size': `${id}_${'L'}` })
         }
     }, [])
@@ -61,16 +67,37 @@ function ProductDetail() {
         // console.log(e);
         setItem({ ...item, 'size': e.target.value })
     }
+
+
+    const [quantity, setQuantity] = useState(1);
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const changeImage = (index) => setCurrentIndex(index);
+
+    // const handleQuantityChange = (e) => {
+    //     const newQuantity = parseInt(e.target.value, 10);
+    //     setQuantity(isNaN(newQuantity) ? 0 : newQuantity);
+    // };
+
     // console.log(params);
+    // const [active, setActive] = useState(false);
+    const { AddToCart } = useCartContext();
+    // const { id, title, img,price, categoryName } = item;
+    
+         const HandleButton = () => {
+        console.log("item-> ", item);
+        toast.success("Item Added into cart !!");
+        AddToCart({ ...item, 'size': `${id}_${'L'}`, quantity: 1 })
+    }
+
     return (
         <>
             <div className='max-w-7xl mx-auto'>
                 <section className="overflow-hidden bg-white py-11 -font-poppins ">
                     <Breadcrumbs />
-                    <div className="max-w-6xl px-4 py-4 mx-auto lg:py-8 md:px-6">
+                    <div className="max-w-7xl px-4 py-4 mx-auto lg:py-8 md:px-6">
                         <div className="flex flex-wrap -mx-4">
                             <div className="w-full px-4 md:w-1/2 ">
-                                <div className="sticky top-0 z-50 overflow-hidden ">
+                                {/* <div className="sticky top-0 z-50 overflow-hidden ">
                                     <div className="relative mb-6 lg:mb-10 lg:h-2/4 ">
                                         <img src={'/' + item?.img}
                                             className="object-cover w-full lg:h-full " />
@@ -79,9 +106,7 @@ function ProductDetail() {
                                         <div className="w-1/2 p-2 sm:w-1/4">
                                             <a href="#"
                                                 className="block border border-blue-300 hover:border-blue-300">
-                                                {/* <img src="https://i.postimg.cc/PqYpFTfy/pexels-melvin-buezo-2529148.jpg" alt="" */}
-                                                <img src={'/' + item?.img} alt=""
-                                                    className="object-cover w-full lg:h-20" />
+                                                <img src="https://i.postimg.cc/PqYpFTfy/pexels-melvin-buezo-2529148.jpg" className="object-cover w-full lg:h-20" alt="" />
                                             </a>
                                         </div>
                                         <div className="w-1/2 p-2 sm:w-1/4">
@@ -105,115 +130,124 @@ function ProductDetail() {
                                                     className="object-cover w-full lg:h-20" />
                                             </a>
                                         </div>
+                                    </div>
+                                </div> */}
+
+                                {/* <div className=" mx-auto flex  md:flex-row-reverse h-[500px]">
+                                    <div className="w-full aspect-square- ">
+                                        <img
+                                            src={`/${products[currentIndex].img}`}
+                                            alt="Product" className=" w-full h-full object-contain" />
+                                    </div>
+                                    <div className="w-56 overflow-hidden">
+                                        <div className="flex flex-col items-start gap-4 h-full">
+                                        <img
+                                            src={`/${products[currentIndex].img}`}
+                                            alt="Product" className=" w-full -aspect-[3/4] object-contain" />
+                                        <button className='w-full aspect-[3/4] bg-gray-300'>
+                                            0o0
+                                        </button>
+                                        </div>
+                                    </div>
+                                </div> */}
+
+                                <div className="img_container flex flex-col-reverse lg:flex-row gap-3">
+                                    
+                                    <div className="left w-[50%] lg:w-[30%]  overflow-hidden">
+                                        <div className="w-full flex flex-row lg:flex-col gap-2">
+                                            <div className=" w-full md:aspect-[3/4] ">
+                                        <img
+                                            src={`/${item.img}`}
+                                            alt="Product" className=" object-cover h-full" />
+                                            </div>
+
+                                            <div className="w-full md:aspect-[3/4]">
+                                        <button className='h-full w-full aspect-[3/4] bg-gray-400 text-gray-900 text-xl font-bold'>
+                                            0o0
+                                        </button>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    
+
+                                    <div className="right w-full self-start">
+                                        <img
+                                            src={`/${item.img}`}
+                                            alt="Product" className=" w-full h-full object-contain" />
                                     </div>
                                 </div>
                             </div>
                             <div className="w-full px-4 md:w-1/2 ">
-                                <div className="lg:pl-12">
-                                    <div className="mb-8 ">
-                                        <span className="text-lg font-medium text-rose-500">New</span>
-                                        <h2 className="max-w-xl mt-2 mb-6 text-2xl font-bold md:text-4xl">{item.title}</h2>
-                                        <div className="flex items-center mb-6">
-                                            <ul className="flex mr-2">
-                                                <li>
-                                                    <a href="#">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                            fill="currentColor"
-                                                            className="w-4 mr-1 text-red-500"
-                                                            viewBox="0 0 16 16">
-                                                            <path
-                                                                d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z" />
-                                                        </svg>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                            fill="currentColor"
-                                                            className="w-4 mr-1 text-red-500"
-                                                            viewBox="0 0 16 16">
-                                                            <path
-                                                                d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z" />
-                                                        </svg>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                            fill="currentColor"
-                                                            className="w-4 mr-1 text-red-500"
-                                                            viewBox="0 0 16 16">
-                                                            <path
-                                                                d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z" />
-                                                        </svg>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                            fill="currentColor"
-                                                            className="w-4 mr-1 text-red-500"
-                                                            viewBox="0 0 16 16">
-                                                            <path
-                                                                d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z" />
-                                                        </svg>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                            <p className="text-xs ">(2 customer reviews)</p>
-                                        </div>
-                                        <div className="max-w-md mb-8 text-gray-700">
-                                            {item.description.split('\n').map((para, index) => <p className='mb-5' key={index}>{para}</p>)}
-                                        </div>
-                                        <p className="inline-block mb-8 text-4xl font-bold text-gray-700 ">
-                                            <span>2000₹</span>{" "}
-                                            <span
-                                                className="text-base font-normal text-gray-500 line-through">2500.99₹</span>
-                                        </p>
-                                        <p className="text-green-600">7 in stock</p>
+                                <div className="flex-1 text-slate-700">
+                                    <h1 className=" text-2xl lg:text-3xl font-bold">{item.title}</h1>
+                                    <span className="text-2xl lg:text-3xl font-semibold text-rose-500 leading-[2em] flex gap-3 items-center">
+                                        <span>₹{item.price}</span>
+                                        <span className="text-gray-400 line-through text-xl">&nbsp;₹{item.price}&nbsp;</span>
+                                        <span className=' lg:block hidden text-sm p-1 ml-5 bg-[#007600] text-white px-2'>In Stock</span>
+                                        <span className='hidden text-base ml-5 bg-red-400 text-white rounded-md px-2'>Out of Stock</span>
+                                    </span>
+                                    <span className=' block lg:hidden text-base w-20 text-center my-3  bg-[#007600] text-white rounded-md px-2'>In Stock</span>
+                                    <h2 className='mt-6'>{item.description}</h2>
+                                    <div className="middle flex">
+                                        <form className="mt-8 flex gap-5">
+                                            <div className="relative flex items-center max-w-[8rem] border">
+                                                <button type="button" id="decrement-button" data-input-counter-decrement="quantity-input" className="hover:bg-gray-200 p-3 h-9 focus:outline-none">
+                                                    <svg className="w-2 h-2 text-gray-900 -dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 2">
+                                                        <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 1h16" />
+                                                    </svg>
+                                                </button>
+                                                <input
+                                                    type="text"
+                                                    id="quantity-input"
+                                                    data-input-counter
+                                                    data-input-counter-min="1"
+                                                    data-input-counter-max="50"
+                                                    aria-describedby="helper-text-explanation"
+                                                    className="border-x-0 border-gray-300 h-9 text-center text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full py-1 -dark:bg-gray-700 -dark:border-gray-600 -dark:placeholder-gray-400 -dark:text-white -dark:focus:ring-blue-500 -dark:focus:border-blue-500"
+                                                    placeholder="1"
+                                                    // value={quantity}
+                                                    // onChange={handleQuantityChange}
+                                                    required
+                                                />
+
+                                                <button type="button" id="increment-button" data-input-counter-increment="quantity-input" className="hover:bg-gray-200  p-3 h-9 focus:outline-none">
+                                                    <svg className="w-2 h-2 text-gray-900" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                                                        <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 1v16M1 9h16" />
+                                                    </svg>
+                                                </button>
+
+
+                                            </div>
+
+                                            <button  onClick={(e) => HandleButton()} className='bg-rose-500 hover:bg-opacity-90 active:bg-rose-800 active:bg-opacity-100 text-white px-10 py-1'>Add to cart</button>
+              </form>
+
                                     </div>
-                                    <form>
-                                        <div className="flex items-center mb-8 gap-4">
-                                            <div className='flex-[300px] flex'>
-                                                <label htmlFor='size' className="w-16 text-xl font-bold">Size:</label>
-                                                <select name='size' id='size' value={'L'} onChange={HandleSelectChange} className="p-2 w-32 ring rounded-md outline-none">
-                                                    <option value={`${item.id}_SM`}>SM</option>
-                                                    <option value={`${item.id}_M`}>M</option>
-                                                    <option value={`${item.id}_L`}>L</option>
-                                                </select>
-                                            </div>
+                                    <div className="hidden mt-5 text-lg -font-semibold">
+                                        <span>Categories:</span>
+                                        <span className='font-semibold'>accessory</span>
+                                    </div>
+                                    <div className="mt-8">
+                                        <span className="mt-8 mb-2 text-lg font-semibold text-level_4">Tags:</span>
+                                        <div className="flex flex-wrap gap-2 mt-2">
+                                            {
+                                                item.tags.split(",").map((tags) => (
+                                                        <span className='px-3 py-2 lowercase pb-1.5 text-gray-200 bg-gray-600 text-xs font-semibold'>{tags}</span>
+                                            
+                                            ))}
                                         </div>
-                                        <div className="w-32 mb-8 ">
-                                            <label htmlFor=""
-                                                className="w-full text-xl font-semibold text-gray-700">Quantity</label>
-                                            <div className="relative flex flex-row w-full h-10 mt-4 bg-transparent rounded-lg">
-                                                <button
-                                                    className="w-20 h-full text-gray-600 bg-gray-200 rounded-l outline-none cursor-pointer hover:text-gray-700 hover:bg-gray-300">
-                                                    <span className="m-auto text-2xl font-thin">-</span>
-                                                </button>
-                                                <input type="telxt"
-                                                    className="flex items-center w-full font-semibold text-center text-gray-700 placeholder-gray-700 bg-gray-100 outline-none text-md hover:text-black" readOnly placeholder="1" />
-                                                <button
-                                                    className="w-20 h-full text-gray-600 bg-gray-200 rounded-r outline-none cursor-pointer hover:text-gray-700 hover:bg-gray-300">
-                                                    <span className="m-auto text-2xl font-thin">+</span>
-                                                </button>
-                                            </div>
-                                        </div>
-                                        <div className="flex flex-wrap items-center -mx-4 ">
-                                            <div className="w-full px-4 mb-4 lg:w-1/2 lg:mb-0">
-                                                <button
-                                                    className="flex items-center justify-center w-full p-4 text-blue-500 border border-blue-500 rounded-md hover:bg-blue-600 hover:border-blue-600 hover:text-gray-100">
-                                                    Add to Cart
-                                                </button>
-                                            </div>
-                                            <div className="w-full px-4 mb-4 lg:mb-0 lg:w-1/2">
-                                                <button
-                                                    className="flex items-center justify-center w-full p-4 text-blue-500 border border-blue-500 rounded-md hover:bg-blue-600 hover:border-blue-600 hover:text-gray-100">
-                                                    Add to wishlist
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </form>
+                                    </div>
+                                    <div className="detail list-none mt-5">
+                                        <hr className='border-1 border-gray-400' />
+                                        <h2 className='mt-5 mb-2 text-lg font-semibold text-level_4'>Product Details</h2>
+                                        {[...Array(5)].map((_) => (
+                                            <li className='text-sm leading-7 font-semibold text-slate-500'>
+                                                <span className='text-slate-700 font-bold mr-8'>Lorem, ipsum.</span>
+                                            </li>
+                                        ))}
+                                    </div>
                                 </div>
                             </div>
                         </div>
